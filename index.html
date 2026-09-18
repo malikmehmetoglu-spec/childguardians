@@ -62,7 +62,9 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <img class="hero__img" src="images/hero.webp" alt="" data-ph="1600×900 — hero image">
+  <img class="hero__img" src="images/hero.webp"
+       srcset="images/hero-sm.webp 960w, images/hero.webp 1600w"
+       sizes="100vw" alt="" fetchpriority="high" data-ph="1600×900 — hero image">
   <div class="hero__veil"></div>
   <div class="wrap hero__in">
     <p class="kicker kicker--light">Registered non-profit · South Africa</p>
