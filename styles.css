@@ -188,7 +188,7 @@ img[data-ph].is-missing{
 .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .hero__img.is-missing{aspect-ratio:auto}
 .hero__veil{position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(100deg,rgba(15,42,36,.93) 0%,rgba(15,42,36,.78) 46%,rgba(15,42,36,.35) 100%);}
+  background:linear-gradient(100deg,rgba(15,53,64,.94) 0%,rgba(11,84,99,.78) 46%,rgba(7,122,145,.38) 100%);}
 .hero__in{padding-block:clamp(70px,10vw,120px)}
 .hero__title{
   font-family:var(--f-display);font-weight:800;
@@ -308,7 +308,7 @@ img[data-ph].is-missing{
 .video{position:relative;isolation:isolate;color:var(--white);text-align:center;padding-block:clamp(80px,12vw,150px)}
 .video__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .video__bg.is-missing{aspect-ratio:auto}
-.video__veil{position:absolute;inset:0;z-index:-1;background:rgba(15,42,36,.8)}
+.video__veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(120deg,rgba(15,53,64,.9),rgba(7,122,145,.78))}
 .video__in .kicker{justify-content:center}
 .video__in .h2{margin-inline:auto;color:var(--white)}
 .video__p{color:rgba(255,255,255,.8);max-width:52ch;margin:0 auto 36px}
@@ -427,3 +427,82 @@ img[data-ph].is-missing{
 .amt.is-on{background:var(--ink);color:var(--white);border-color:var(--ink)}
 .modal__note{margin:0;font-size:13.5px;color:var(--muted);text-align:center}
 .modal__note.is-err{color:#B3261E}
+
+
+/* =========================================================
+   Brand color enrichment — Child Guardians tri-color system
+   ========================================================= */
+
+/* شريط العلامة: تركواز/أخضر/برتقالي أعلى الموقع وأسفله */
+.head::before,.foot::before{
+  content:"";display:block;height:5px;
+  background:linear-gradient(90deg,
+    var(--teal) 0 33.34%, var(--green) 33.34% 66.67%, var(--gold) 66.67% 100%);
+}
+
+/* مجالات العمل: كل بطاقة بلون من الهوية */
+.focus__item{--c:var(--teal);border-inline-start:3px solid var(--c)}
+.focus__item:nth-child(2){--c:var(--gold)}
+.focus__item:nth-child(3){--c:var(--green)}
+.focus__item:hover{border-inline-start-color:var(--c);background:linear-gradient(90deg,color-mix(in srgb,var(--c) 7%,transparent),transparent 70%)}
+.focus__ico{background:var(--c);color:var(--white)}
+.focus__item:nth-child(2) .focus__ico,
+.focus__item:nth-child(3) .focus__ico{color:var(--ink)}
+.focus__item .lnk{color:var(--ink);border-color:var(--c)}
+
+/* أرقام الأثر: أربع بطاقات مصمتة بألوان الهوية */
+.stat{border:0}
+.stat:nth-child(1){background:var(--teal)}
+.stat:nth-child(2){background:var(--green)}
+.stat:nth-child(3){background:var(--gold)}
+.stat:nth-child(4){background:var(--ink)}
+.stat:nth-child(-n+3) .stat__n,
+.stat:nth-child(-n+3) h4{color:var(--ink)}
+.stat:nth-child(-n+3) .stat__p{color:var(--ink);opacity:.78}
+.stat:nth-child(4) .stat__n{color:var(--gold)}
+.stat:nth-child(4) h4{color:var(--white)}
+.stat:nth-child(4) .stat__p{color:var(--white);opacity:.75}
+.stat:nth-child(-n+3) .btn--gold{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.stat:nth-child(-n+3) .btn--gold:hover{background:var(--white);color:var(--ink);border-color:var(--ink)}
+
+/* تواريخ الفعاليات: تناوب ثلاثي */
+.event:nth-child(3n+1) .event__date{background:var(--teal)}
+.event:nth-child(3n+2) .event__date{background:var(--gold)}
+.event:nth-child(3n+3) .event__date{background:var(--green)}
+.event .event__date{color:var(--ink)}
+.event .event__m{color:var(--ink);opacity:.72}
+
+/* أرقام الهيرو: كل رقم بلون */
+.hero__facts div:nth-child(1) dt{color:var(--gold)}
+.hero__facts div:nth-child(2) dt{color:var(--teal)}
+.hero__facts div:nth-child(3) dt{color:var(--green)}
+
+/* الفريق: شريط سفلي ملوّن متناوب لكل عضو */
+.member::after{content:"";position:absolute;inset-inline:0;bottom:0;height:5px;background:var(--mc,var(--teal))}
+.member:nth-child(3n+2){--mc:var(--green)}
+.member:nth-child(3n+3){--mc:var(--gold)}
+.member span{color:#F5883E}
+
+/* خطوات التطوع: أرقام ملونة بالتناوب */
+.vol__steps li:nth-child(3n+1) span{background:var(--teal);color:var(--white)}
+.vol__steps li:nth-child(3n+2) span{background:var(--gold);color:var(--white)}
+.vol__steps li:nth-child(3n+3) span{background:var(--green);color:var(--ink)}
+
+/* بطاقات الدعوة الختامية: الألوان الثلاثة */
+.cta__card:nth-child(1){background:var(--gold);border-color:var(--gold)}
+.cta__card:nth-child(2){background:var(--teal);border-color:var(--teal)}
+.cta__card:nth-child(3){background:var(--green);border-color:var(--green)}
+.cta__card p{color:var(--ink);opacity:.78}
+.cta__card .btn--line{border-color:var(--ink);color:var(--ink)}
+.cta__card .btn--line:hover{background:var(--ink);color:var(--white)}
+
+/* فوتر: تلوين تحويم أيقونات التواصل بالتناوب */
+.foot__social a:nth-child(3n+1):hover{background:var(--teal);border-color:var(--teal);color:var(--ink)}
+.foot__social a:nth-child(3n+2):hover{background:var(--green);border-color:var(--green);color:var(--ink)}
+.foot__social a:nth-child(3n+3):hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+
+/* شريط تقدم الحملات على الخلفية التركوازية: مسار أدكن قليلاً */
+.causes .bar{background:rgba(15,53,64,.18)}
+.causes .bar span{background:var(--ink)}
+.causes .cause .bar{background:var(--cream-2)}
+.causes .cause .bar span{background:var(--gold)}
