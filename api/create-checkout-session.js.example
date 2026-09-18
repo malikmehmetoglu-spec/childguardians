@@ -1,0 +1,56 @@
+// =========================================================
+// Vercel Serverless Function — Stripe Checkout
+// ---------------------------------------------------------
+// TO ACTIVATE:
+//   1. Rename this file to: create-checkout-session.js
+//   2. Run: npm init -y && npm install stripe
+//   3. Vercel -> Settings -> Environment Variables:
+//        STRIPE_SECRET_KEY = sk_live_...
+//   4. In donate.js, replace startPayment() with the fetch
+//      example written in the comment there.
+//
+// While the file keeps the .example extension, Vercel ignores
+// it completely and the site stays a pure static deploy.
+// =========================================================
+
+const Stripe = require('stripe');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    const { amount, currency = 'usd', frequency, cause, email } = req.body;
+
+    const value = Math.round(Number(amount) * 100);
+    if (!value || value < 100) {
+      return res.status(400).json({ error: 'Invalid amount' });
+    }
+
+    const origin = req.headers.origin || `https://${req.headers.host}`;
+    const recurring = frequency === 'monthly' ? { interval: 'month' } : undefined;
+
+    const session = await stripe.checkout.sessions.create({
+      mode: recurring ? 'subscription' : 'payment',
+      customer_email: email,
+      line_items: [{
+        quantity: 1,
+        price_data: {
+          currency,
+          unit_amount: value,
+          recurring,
+          product_data: { name: `Donation — ${cause || 'General fund'}` }
+        }
+      }],
+      success_url: `${origin}/?donation=success`,
+      cancel_url: `${origin}/?donation=cancelled`
+    });
+
+    return res.status(200).json({ url: session.url });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Could not start checkout' });
+  }
+};
