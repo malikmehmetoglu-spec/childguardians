@@ -1,4 +1,4 @@
-# Hope Foundation — charity landing page
+# Child Guardians — charity landing page
 
 Plain HTML, CSS and JavaScript. No framework, no build step, no
 dependencies. Deploys to Vercel as-is.
