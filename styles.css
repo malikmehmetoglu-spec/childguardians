@@ -31,7 +31,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:96px}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
@@ -450,20 +450,18 @@ img[data-ph].is-missing{
 .focus__item:nth-child(3) .focus__ico{color:var(--ink)}
 .focus__item .lnk{color:var(--ink);border-color:var(--c)}
 
-/* أرقام الأثر: أربع بطاقات مصمتة بألوان الهوية */
-.stat{border:0}
-.stat:nth-child(1){background:var(--teal)}
-.stat:nth-child(2){background:var(--green)}
-.stat:nth-child(3){background:var(--gold)}
-.stat:nth-child(4){background:var(--ink)}
-.stat:nth-child(-n+3) .stat__n,
-.stat:nth-child(-n+3) h4{color:var(--ink)}
-.stat:nth-child(-n+3) .stat__p{color:var(--ink);opacity:.78}
-.stat:nth-child(4) .stat__n{color:var(--gold)}
-.stat:nth-child(4) h4{color:var(--white)}
-.stat:nth-child(4) .stat__p{color:var(--white);opacity:.75}
-.stat:nth-child(-n+3) .btn--gold{background:var(--ink);color:var(--white);border-color:var(--ink)}
-.stat:nth-child(-n+3) .btn--gold:hover{background:var(--white);color:var(--ink);border-color:var(--ink)}
+/* أرقام الأثر: بطاقات مصمتة تتناوب على ألوان الهوية */
+.stat{border:0;background:var(--teal);display:flex;flex-direction:column}
+.stat:nth-child(4n+2){background:var(--green)}
+.stat:nth-child(4n+3){background:var(--gold)}
+.stat:nth-child(4n+4){background:var(--ink)}
+.stat .stat__n,.stat h4{color:var(--ink)}
+.stat .stat__p{color:var(--ink);opacity:.78}
+.stat:nth-child(4n+4) .stat__n{color:var(--gold)}
+.stat:nth-child(4n+4) h4{color:var(--white)}
+.stat:nth-child(4n+4) .stat__p{color:var(--white);opacity:.78}
+.stat h4{min-height:2.6em;display:flex;align-items:center;justify-content:center}
+.stat .stat__p{margin-bottom:0}
 
 /* تواريخ الفعاليات: تناوب ثلاثي */
 .event:nth-child(3n+1) .event__date{background:var(--teal)}

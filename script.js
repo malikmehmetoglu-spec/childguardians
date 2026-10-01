@@ -69,8 +69,12 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var counters = document.querySelectorAll('[data-count]');
 
+  function fmt(n) {
+    return Number(n).toLocaleString('en-US');
+  }
+
   function setFinal(el) {
-    el.textContent = el.dataset.count + (el.dataset.suffix || '');
+    el.textContent = fmt(el.dataset.count) + (el.dataset.suffix || '');
   }
 
   if (!('IntersectionObserver' in window) || reduce) {
@@ -88,7 +92,7 @@
         (function step(now) {
           var p = Math.min((now - start) / dur, 1);
           var eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(target * eased) + suffix;
+          el.textContent = fmt(Math.round(target * eased)) + suffix;
           if (p < 1) requestAnimationFrame(step);
         })(start);
       });
