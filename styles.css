@@ -506,3 +506,57 @@ img[data-ph].is-missing{
 .causes .bar span{background:var(--ink)}
 .causes .cause .bar{background:var(--cream-2)}
 .causes .cause .bar span{background:var(--gold)}
+
+
+/* =========================================================
+   Core values
+   ========================================================= */
+.values{padding-block:var(--sec);background:var(--cream-2)}
+.values__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,22px)}
+.value{
+  background:var(--white);border-radius:var(--r-lg);padding:28px 24px;
+  border-top:4px solid var(--vc,var(--teal));
+}
+.value:nth-child(7n+2){--vc:var(--gold)}
+.value:nth-child(7n+3){--vc:var(--green)}
+.value:nth-child(7n+4){--vc:var(--ink)}
+.value:nth-child(7n+5){--vc:var(--teal)}
+.value:nth-child(7n+6){--vc:var(--gold)}
+.value:nth-child(7n+7){--vc:var(--green)}
+.value h3{font-family:var(--f-display);font-weight:700;font-size:19px;letter-spacing:-.02em;margin:0 0 9px}
+.value p{color:var(--muted);font-size:15px;margin:0}
+/* البطاقة السابعة تمتد لتملأ الصف */
+.values__grid .value:nth-child(7){grid-column:span 2}
+@media (max-width:1020px){
+  .values__grid{grid-template-columns:repeat(2,1fr)}
+  .values__grid .value:nth-child(7){grid-column:span 2}
+}
+@media (max-width:620px){
+  .values__grid{grid-template-columns:1fr}
+  .values__grid .value:nth-child(7){grid-column:auto}
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq{padding-block:var(--sec);background:var(--white)}
+.faq__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px);align-items:start}
+.faq__gt{
+  font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:-.01em;
+  margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--green);
+}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item summary{
+  list-style:none;cursor:pointer;padding:15px 30px 15px 0;position:relative;
+  font-weight:600;font-size:15.5px;line-height:1.45;
+}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary::after{
+  content:"";position:absolute;inset-inline-end:4px;top:22px;
+  width:10px;height:10px;border-right:2px solid var(--teal-text);border-bottom:2px solid var(--teal-text);
+  transform:rotate(45deg);transition:transform .2s;
+}
+.faq__item[open] summary::after{transform:rotate(-135deg);top:26px}
+.faq__item summary:hover{color:var(--teal-text)}
+.faq__item p{margin:0 0 18px;color:var(--muted);font-size:15px;padding-inline-end:24px}
+@media (max-width:900px){.faq__cols{grid-template-columns:1fr;gap:28px}}
