@@ -391,8 +391,8 @@ img[data-ph].is-missing{
 @media (max-width:860px){.cta__grid{grid-template-columns:1fr}}
 
 /* ---------- Footer ---------- */
-.foot{background:var(--ink);color:rgba(255,255,255,.72);padding-top:clamp(56px,7vw,86px)}
-.foot__in{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:clamp(28px,4vw,50px);padding-bottom:50px}
+.foot{background:var(--ink);color:rgba(255,255,255,.72)}
+.foot__in{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:clamp(28px,4vw,50px);padding-top:clamp(56px,7vw,86px);padding-bottom:50px}
 .foot__brand p{font-size:15px;max-width:38ch;margin:18px 0 20px}
 .foot__social{display:flex;gap:10px}
 .foot__social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);display:grid;place-items:center;font-size:14px;font-weight:600;transition:background-color .2s,color .2s}
