@@ -442,14 +442,14 @@ img[data-ph].is-missing{
    Brand color enrichment — Child Guardians tri-color system
    ========================================================= */
 
-/* شريط العلامة: تركواز/أخضر/برتقالي أعلى الموقع وأسفله */
+/* Brand strip: turquoise / green / tangelo, at the top and bottom of the page */
 .head::before,.foot::before{
   content:"";display:block;height:5px;
   background:linear-gradient(90deg,
     var(--teal) 0 33.34%, var(--green) 33.34% 66.67%, var(--gold) 66.67% 100%);
 }
 
-/* مجالات العمل: كل بطاقة بلون من الهوية */
+/* Focus areas: one brand colour per card */
 .focus__item{--c:var(--teal);border-inline-start:3px solid var(--c)}
 .focus__item:nth-child(2){--c:var(--gold)}
 .focus__item:nth-child(3){--c:var(--green)}
@@ -459,7 +459,7 @@ img[data-ph].is-missing{
 .focus__item:nth-child(3) .focus__ico{color:var(--ink)}
 .focus__item .lnk{color:var(--ink);border-color:var(--c)}
 
-/* أرقام الأثر: بطاقات مصمتة تتناوب على ألوان الهوية */
+/* Impact figures: solid cards rotating through the brand colours */
 .stat{border:0;background:var(--teal);display:flex;flex-direction:column}
 .stat:nth-child(4n+2){background:var(--green)}
 .stat:nth-child(4n+3){background:var(--gold)}
@@ -472,30 +472,30 @@ img[data-ph].is-missing{
 .stat h4{min-height:2.6em;display:flex;align-items:center;justify-content:center}
 .stat .stat__p{margin-bottom:0}
 
-/* تواريخ الفعاليات: تناوب ثلاثي */
+/* Event dates: three-colour rotation */
 .event:nth-child(3n+1) .event__date{background:var(--teal)}
 .event:nth-child(3n+2) .event__date{background:var(--gold)}
 .event:nth-child(3n+3) .event__date{background:var(--green)}
 .event .event__date{color:var(--ink)}
 .event .event__m{color:var(--ink);opacity:.72}
 
-/* أرقام الهيرو: كل رقم بلون */
+/* Hero figures: one colour each */
 .hero__facts div:nth-child(1) dt{color:var(--gold)}
 .hero__facts div:nth-child(2) dt{color:var(--teal)}
 .hero__facts div:nth-child(3) dt{color:var(--green)}
 
-/* الفريق: شريط سفلي ملوّن متناوب لكل عضو */
+/* Team: alternating colour bar under each portrait */
 .member::after{content:"";position:absolute;inset-inline:0;bottom:0;height:5px;background:var(--mc,var(--teal))}
 .member:nth-child(3n+2){--mc:var(--green)}
 .member:nth-child(3n+3){--mc:var(--gold)}
 .member span{color:#F5883E}
 
-/* خطوات التطوع: أرقام ملونة بالتناوب */
+/* Volunteer steps: alternating numbered markers */
 .vol__steps li:nth-child(3n+1) span{background:var(--teal);color:var(--white)}
 .vol__steps li:nth-child(3n+2) span{background:var(--gold);color:var(--white)}
 .vol__steps li:nth-child(3n+3) span{background:var(--green);color:var(--ink)}
 
-/* بطاقات الدعوة الختامية: الألوان الثلاثة */
+/* Closing call-to-action cards: the three brand colours */
 .cta__card:nth-child(1){background:var(--gold);border-color:var(--gold)}
 .cta__card:nth-child(2){background:var(--teal);border-color:var(--teal)}
 .cta__card:nth-child(3){background:var(--green);border-color:var(--green)}
@@ -503,12 +503,12 @@ img[data-ph].is-missing{
 .cta__card .btn--line{border-color:var(--ink);color:var(--ink)}
 .cta__card .btn--line:hover{background:var(--ink);color:var(--white)}
 
-/* فوتر: تلوين تحويم أيقونات التواصل بالتناوب */
+/* Footer: alternating hover colour on the social icons */
 .foot__social a:nth-child(3n+1):hover{background:var(--teal);border-color:var(--teal);color:var(--ink)}
 .foot__social a:nth-child(3n+2):hover{background:var(--green);border-color:var(--green);color:var(--ink)}
 .foot__social a:nth-child(3n+3):hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
 
-/* شريط تقدم الحملات على الخلفية التركوازية: مسار أدكن قليلاً */
+/* Appeal progress bars on the turquoise band: a slightly darker track */
 .causes .bar{background:rgba(15,53,64,.18)}
 .causes .bar span{background:var(--ink)}
 .causes .cause .bar{background:var(--cream-2)}
@@ -532,7 +532,7 @@ img[data-ph].is-missing{
 .value:nth-child(7n+7){--vc:var(--green)}
 .value h3{font-family:var(--f-display);font-weight:700;font-size:19px;letter-spacing:-.02em;margin:0 0 9px}
 .value p{color:var(--muted);font-size:15px;margin:0}
-/* البطاقة السابعة تمتد لتملأ الصف */
+/* The seventh value card spans the row */
 .values__grid .value:nth-child(7){grid-column:span 2}
 @media (max-width:1020px){
   .values__grid{grid-template-columns:repeat(2,1fr)}
